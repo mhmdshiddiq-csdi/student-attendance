@@ -6,6 +6,7 @@ use Livewire\Component;
 
 class EditStudent extends Component
 {
+    public $grades = [];
     public function render()
     {
         return view('livewire.teacher.students.edit-student');

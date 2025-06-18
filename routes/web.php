@@ -5,6 +5,7 @@ use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use App\Livewire\Teacher\Students\AddStudent;
+use App\Livewire\Teacher\Students\EditStudent;
 use App\Livewire\Teacher\Students\StudentList;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,7 @@ Route::view('/dashboard', 'dashboard')
 //students
 Route::get('/student-list', StudentList::class)->name('student.index');
 Route::get('/create/student', AddStudent::class)->name('student.create');
-
+Route::get('/edit/student/{id}', EditStudent::class)->name('student.edit');
 
 
 
