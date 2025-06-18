@@ -4,6 +4,8 @@ use App\Livewire\Admin\AdminDashboard;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
+use App\Livewire\Teacher\Students\AddStudent;
+use App\Livewire\Teacher\Students\StudentList;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -13,6 +15,13 @@ Route::get('/', function () {
 Route::view('/dashboard', 'dashboard')
     ->middleware(['auth', 'verified', 'teacher'])
     ->name('teacher.dashboard');
+//students
+Route::get('/student-list', StudentList::class)->name('student.index');
+Route::get('/create/student', AddStudent::class)->name('student.create');
+
+
+
+
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
@@ -22,7 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
 });
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['admin', 'auth'])->group(function () {
     Route::get('/admin/dashboard', AdminDashboard::class,)->name('admin.dashboard');
 });
 
