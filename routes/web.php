@@ -4,6 +4,7 @@ use App\Livewire\Admin\AdminDashboard;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
+use App\Livewire\Teacher\Attendance\AttendancePage;
 use App\Livewire\Teacher\Grades\AddGrade;
 use App\Livewire\Teacher\Grades\EditGrade;
 use App\Livewire\Teacher\Grades\GradeList;
@@ -29,6 +30,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/grade/list', GradeList::class)->name('grade.index');
     Route::get('/grade/create', AddGrade::class)->name('grade.create');
     Route::get('/grade/edit/{id}', EditGrade::class)->name('grade.edit');
+
+    //attendance
+    Route::get('/attendance', AttendancePage::class)->name('attendance.page');
 });
 
 

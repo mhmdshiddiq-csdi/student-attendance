@@ -15,7 +15,7 @@ class Attendanc extends Model
         'reason',
     ];
 
-    public function stundet() 
+    public function student() 
     {
         return $this->belongsTo(Student::class);
     }
